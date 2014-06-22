@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# Use Google dns
-cp /estaty/vagrant-provision/etc/resolv.conf /etc/resolv.conf
+# Copy /etc configuration
+cp -r /estaty/vagrant-provision/etc/* /etc/
 
 # Configure en_US.UTF-8 locale
-cp /estaty/vagrant-provision/etc/locale.gen /etc/locale.gen
 locale-gen
 
 # Update apt get repositories
@@ -23,10 +22,8 @@ apt-get -q -y install \
  php5-mysql php5-mysqlnd php5-xdebug php5-mcrypt \
  htop vim
 
-# Enable estaty virtual host
-a2enmod rewrite
-cp /estaty/vagrant-provision/vhosts/estaty /etc/apache2/sites-available/
-a2ensite estaty
+# Enable Estaty virtual host
+a2ensite estaty.conf
 service apache2 reload
 
 # Remove password for MySQL root user
@@ -37,9 +34,7 @@ mysql -uroot -e "CREATE DATABASE IF NOT EXISTS estaty"
 mysql -uroot -e "CREATE DATABASE IF NOT EXISTS estaty_test"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO estaty_test@localhost IDENTIFIED BY '';"
 
-# etc
-cp /estaty/vagrant-provision/etc/hosts /etc/hosts
-cp /estaty/vagrant-provision/etc/environment /etc/environment
+# Set environment variables
 source /etc/environment
 
 # set up sudo-less binary path
