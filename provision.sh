@@ -36,13 +36,13 @@ mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO estaty_test@localhost IDENTIFIED
 # Set environment variables
 source /etc/environment
 
-# set up sudo-less binary path
-mkdir $HOME/bin
-export PATH=$PATH:$HOME/bin
+# Set up sudo-less binary path
+mkdir -p /home/vagrant/bin
+export PATH=$PATH:/home/vagrant/bin
 
 # install composer
-curl -sS https://getcomposer.org/installer | php -- --install-dir=$HOME/bin --filename=composer
-composer --working-dir=/estaty install
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/home/vagrant/bin --filename=composer
+composer --working-dir=/estaty/estaty install
 
 # Make sure /tmp is writable
 chown -R vagrant:www-data /tmp
