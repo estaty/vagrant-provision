@@ -17,12 +17,9 @@ debconf-set-selections <<< 'mysql-server-5.1 mysql-server/root_password_again pa
 
 # Install Git, Apache, MySQL, PHP, htop and Vim
 apt-get -q -y install \
- git-core \
- apache2 \
- mysql-server mysql-client \
+ git-core htop vim apache2 mysql-server mysql-client \
  php5 php5-imagick php5-gd php5-memcache php5-curl php5-intl \
- php5-mysql php5-mysqlnd php5-xdebug php5-mcrypt \
- htop vim
+ php5-mysqlnd php5-xdebug php5-mcrypt
 
 # Enable Estaty virtual host
 a2ensite estaty.conf
