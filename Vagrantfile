@@ -65,6 +65,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # The shell provisioner allows you to upload and
   # execute a script within the guest machine.
-  config.vm.provision "shell", path: "provision.sh"
+  config.vm.provision "shell", path: "vagrant-provision/provision.sh"
 
 end
