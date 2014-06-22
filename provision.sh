@@ -26,7 +26,7 @@ a2ensite estaty.conf
 service apache2 reload
 
 # Remove password for MySQL root user
-mysqladmin -u root -proot password ''
+mysqladmin --user=root --password=root password ''
 
 # estaty MySQL databases and users
 mysql -uroot -e "CREATE DATABASE IF NOT EXISTS estaty"
