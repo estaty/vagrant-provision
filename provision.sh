@@ -7,6 +7,8 @@ cp -r /estaty/vagrant-provision/etc/* /etc/
 locale-gen
 
 # Update apt get repositories
+apt-get install python-software-properties
+add-apt-repository ppa:ondrej/php5
 apt-get update
 
 # Set answers for mysql-server
