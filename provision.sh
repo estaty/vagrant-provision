@@ -28,7 +28,7 @@ service apache2 reload
 # Remove password for MySQL root user
 mysqladmin --user=root --password=root password ''
 
-# estaty MySQL databases and users
+# Create Estaty MySQL databases and users
 mysql -uroot -e "CREATE DATABASE IF NOT EXISTS estaty"
 mysql -uroot -e "CREATE DATABASE IF NOT EXISTS estaty_test"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO estaty_test@localhost IDENTIFIED BY '';"
