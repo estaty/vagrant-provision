@@ -1,0 +1,27 @@
+<VirtualHost *:80>
+    DocumentRoot /estaty/estaty/public
+    ServerName estaty.dev
+    ServerAlias *
+
+    <Directory "/estaty/estaty/public">
+        Options FollowSymLinks
+        AllowOverride All
+        Order deny,allow
+        Allow from all
+    </Directory>
+
+    SetEnv ESTATY_ENV dev
+</VirtualHost>
+
+<VirtualHost *:80>
+    DocumentRoot /estaty/estaty/public
+    ServerName test.estaty.dev
+
+    <Directory "/estaty/estaty/public">
+        Options FollowSymLinks
+        AllowOverride All
+        Order deny,allow
+        Allow from all
+    </Directory>
+    SetEnv ESTATY_ENV test
+</VirtualHost>
